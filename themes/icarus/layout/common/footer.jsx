@@ -67,7 +67,7 @@ class Footer extends Component {
 							/>
                             
                             <br />
-                                <a href="mailto:lvboda.cn@gmail.com">lvboda.cn@gmail.com</a>
+                                <a href="mailto:lvboda705@gmail.com">lvboda705@gmail.com</a>
                             <br/>
                                 <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">辽ICP备2022007649号-2</a>
                             <br/>
