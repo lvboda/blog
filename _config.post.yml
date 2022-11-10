@@ -1,0 +1,65 @@
+# _config.post.yml中的配置对所有“文章”生效
+widgets:
+    # 个人信息组件
+    # -
+    #     type: profile
+    #     position: right
+        
+    # 最新文章组件
+    # -
+    #     type: recent_posts
+    #     position: left
+
+    # 分类组件
+    # -
+    #     type: categories
+    #     position: right
+
+    # 标签组件
+    # -
+    #     type: tags
+    #     position: right
+
+    # 时间轴|归档组件
+    # -
+    #     type: archives
+    #     position: right
+
+    # 链接组件
+    # -
+    #     type: links
+    #     position: right
+
+    # 目录组件
+    -
+        type: toc
+        position: right
+
+    # 订阅更新组件
+    # -
+    #     type: subscribe_email
+    #     position: right
+
+    # 广告组件
+    # -
+    #     type: adsense
+    #     position: right
+
+##################################################################################################################### 侧边栏滚动
+# Sidebar configurations.
+# Please be noted that a sidebar is only visible when it has at least one widget
+# 侧边栏
+###### 设置sidebar中某个侧边栏的sticky为true来让它的位置固定而不跟随页面滚动。
+sidebar:
+    # Left sidebar configurations
+    # 左侧边栏设置
+    left:
+        # Whether the sidebar sticks to the top when page scrolls
+        # 是否不随页面滚动
+        sticky: true
+    # Right sidebar configurations
+    # 右侧边栏设置
+    right:
+        # Whether the sidebar sticks to the top when page scrolls
+        # 是否不随页面滚动
+        sticky: true

@@ -1,3 +1,8 @@
-node_modules
 .DS_Store
-public
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+_multiconfig.yml
