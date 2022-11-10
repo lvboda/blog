@@ -48,4 +48,5 @@ More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
 $ hexo deploy
 ```
 我叫吕博达，这是我的第一篇博客
+测试一下部署
 
