@@ -162,8 +162,8 @@ search:
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Comment/
 comment:
     type: gitalk
-    client_id: '19dd7cdc99262c30fa49' # <- your client_id
-    client_secret: '' # <- your client_secret
+    client_id: '19dd7cdc99262c30fa49' #gitignore
+    client_secret: '2313635a0cf109224b29298fbdba0c87ad9b881a' #gitignore
     repo: 'blog'
     owner: 'lvboda'
     admin: ['lvboda']
