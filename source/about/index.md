@@ -1,43 +1,26 @@
-<center>
-    <h2>
-        关于
-    </h2>
-</center>
-
-
-<p>
-    <center>
-		(⑅˃◡˂⑅)
-	</center>
-	<center>
-		(๑• . •๑)
-	</center>
-</p>
-
-
-
-<center><h3>关于本站</h3></center>
-
-<center>
-    <p>
-    本站主要是用于记录一些可有可无的琐事。
-    </p>
-</center>
-</br>
+![](/img/about-me.jpg)
 
 <center><h3>本人自述</h3></center>
 
 <center>
-    <p>
-        有时侯像一条没有梦想的咸鱼，有时侯像一只勤奋的小仓鼠。
-    </p>
-    <p>
-        学过一点前端知识。有时翻网络垃圾桶找垃圾吃。
-    </p>
+    吕博达 男 2000年出生 无神论者
 </center>
-</p>
+<center>
+    目前从事前端开发工作
+</center>
+<center>
+    喜欢音乐、健身和计算机相关技术，热衷于探索新鲜事物
+</center>
+</br>
 
-![](https://raw.githubusercontent.com/jeam-xyz/image/main/202201040049202.png)
+<center><h3>站点描述</h3></center>
 
-
-
+<center>
+    22年6月份因家中变故选择离职回家，在这段时间有了搭建个人站点的想法，故有了本站。
+</center>
+<center>
+    本站主要分享计算机编程相关知识（包括但不限于前端方向）以及个人随笔。
+</center>
+<center>
+    <a href="https://lvboda.cn">https://lvboda.cn</a>还部署了我的一些个人项目及网页的小工具。
+</center>
