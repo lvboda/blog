@@ -9,19 +9,20 @@ const crypto = require('crypto');
 // 根据自己的情况进行配置
 const config = {
     username: "lvboda", // GitHub 用户名
-    token: "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",  // GitHub Token
+    token: "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",  // GitHub Token
     repo: "blog",  // 存放 issues的git仓库
     // sitemap.xml的路径，gitalk.init.js放置在根目录下，无需修改，其他情况自行处理
     sitemapUrl: path.resolve(__dirname, "./public/sitemap.xml"),
     kind: "Gitalk",  // "Gitalk" or "Gitment"
 };
-let issuesUrl = `https://api.github.com/repos/${config.username}/${config.repo}/issues?access_token=${config.token}`;
+let issuesUrl = `https://api.github.com/repos/${config.username}/${config.repo}/issues`;
 
 let requestGetOpt = {
-    url: `${issuesUrl}&page=1&per_page=1000`,
+    url: `${issuesUrl}?page=1&per_page=1000`,
     json: true,
     headers: {
-        "User-Agent": "github-user"
+        "User-Agent": "github-user",
+        "Authorization": `token ${config.token}`
     }
 };
 let requestPostOpt = {
@@ -47,7 +48,7 @@ console.log("开始初始化评论...");
         console.log(`已经存在${issues.length}个issues`);
         
         let notInitIssueLinks = urls.filter((link) => {
-            return !issues.find((item) => {
+            return !issues?.find((item) => {
                 link = removeProtocol(link);
                 return item.body.includes(link);
             });
@@ -80,8 +81,7 @@ console.log("开始初始化评论...");
                     let form = JSON.stringify({ "body": desc, "labels": [config.kind, label], "title": title });
                     return send({ ...requestPostOpt, form });
                 });
-                console.log(`已完成${initRet.length}个！`);
-                console.log("可以愉快的发表评论了！");
+                console.log(`初始化issues成功，完成${initRet.length}个！`);
             },40000);
         } else {
             console.log("本次发布无新增页面，无需初始化issue!!");
