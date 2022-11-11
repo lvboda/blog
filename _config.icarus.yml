@@ -160,21 +160,21 @@ search:
     type: insight
 # Comment plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Comment/
-#comment:
- #   type: gitalk
-  #  client_id: xxxxxxxxxxxxxxxxxxxx
-   # client_secret: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-#    repo: xxxx
- #   owner: xxxxxxx
-  #  admin: ['xxxxx']
-#    per_page: 20                    # 可选填
- #   distraction_free_mode: false    # 可选填
-  #  pager_direction: last           # 可选填
-#    create_issue_manually: false    # 可选填
- #   proxy:                          # 可选填
+comment:
+    type: gitalk
+    client_id: '19dd7cdc99262c30fa49'
+    client_secret: '2313635a0cf109224b29298fbdba0c87ad9b881a'
+    repo: 'blog'
+    owner: 'lvboda'
+    admin: ['lvboda']
+    language: zh-CN
+    per_page: 20
+    pager_direction: last
+    distraction_free_mode: false
+    create_issue_manually: true
+    proxy: https://lvboda.cn/proxy/?addr=https://github.com/login/oauth/access_token
   #  flip_move_options:              # 可选填
  #   enable_hotkey: true             # 可选填
-  #  language: zh-CN                 # 可选填
 
 # Donate plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Donation/
