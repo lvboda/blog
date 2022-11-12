@@ -1,4 +1,4 @@
-![](/img/about-me.jpg)
+![](/img/about-me.png)
 
 <center><h3>自述</h3></center>
 

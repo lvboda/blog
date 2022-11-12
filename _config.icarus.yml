@@ -180,12 +180,12 @@ donates:
     -
         type: wechat
          # Wechat qrcode image URL
-        qrcode: '/img/wechat-qrcode.jpeg'
+        qrcode: '/img/wechat-qrcode.png'
   # Alipay donate button configurations
     -
         type: alipay
          # Alipay qrcode image URL
-        qrcode: '/img/alipay-qrcode.jpeg'
+        qrcode: '/img/alipay-qrcode.png'
     # "Afdian.net" donate button configurations
 #    -
  #       type: afdian
@@ -241,7 +241,7 @@ widgets:
         # Author's current location
         location: China
         # URL or path to the avatar image
-        avatar: /img/avatar.jpeg
+        avatar: /img/avatar.png
         # Whether show the rounded avatar image
         avatar_rounded: true
         # Email address for the Gravatar
