@@ -1,9 +1,9 @@
 ![](/img/about-me.jpg)
 
-<center><h3>本人自述</h3></center>
+<center><h3>自述</h3></center>
 
 <center>
-    吕博达 男 2000年出生 无神论者
+    吕博达 2000年生 无神论者
 </center>
 <center>
     目前从事前端开发工作
@@ -22,5 +22,5 @@
     本站主要分享计算机编程相关知识（包括但不限于前端方向）以及个人随笔。
 </center>
 <center>
-    <a href="https://lvboda.cn">https://lvboda.cn</a>还部署了我的一些个人项目及网页的小工具。
+    <a href="https://lvboda.cn">lvboda.cn</a>部署了我的一些个人项目及网页的小工具。
 </center>

@@ -21,13 +21,6 @@ const crypto = require('crypto');
 //     kind: "Gitalk",  // "Gitalk" or "Gitment"
 // };
 
-const config = { // ##gitignore
-    username: "lvboda", // ##gitignore
-    token: "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",  // ##gitignore
-    repo: "blog", // ##gitignore
-    sitemapUrl: path.resolve(__dirname, "./public/sitemap.xml"), // ##gitignore
-    kind: "Gitalk",  // ##gitignore
-}; // ##gitignore
 
 const issuesUrl = `https://api.github.com/repos/${config.username}/${config.repo}/issues`;
 
@@ -53,6 +46,8 @@ console.log("开始初始化评论...");
     console.log("开始检索链接，请稍等...");
     
     try {
+        const websiteConfig = YAML.parse(fs.readFileSync(path.resolve(__dirname, "./_config.yml"), "utf8"));
+
         const urls = sitemapXmlReader(config.sitemapUrl);
         console.log(`共检索到${urls.length - 1}个链接`);
 
@@ -61,6 +56,17 @@ console.log("开始初始化评论...");
         console.log(`已经存在${issues.length}个issues`);
         
         const notInitIssueLinks = urls.filter((link) => {
+            // 排除
+            if (
+                link.endsWith("about/") ||
+                link.endsWith("friends/") ||
+                (
+                    websiteConfig.root &&
+                    websiteConfig.root !== "/" &&
+                    link.endsWith(websiteConfig.root.replaceAll("/", ""))
+                )
+            ) return false;
+
             return !issues.find((item) => {
                 link = removeProtocol(link);
                 return item.body.includes(link);
@@ -87,7 +93,6 @@ console.log("开始初始化评论...");
                     const html = await send({ ...requestGetOpt, url: item });
                     const title = cheerio.load(html)("title").text();
                     const desc = item + "\n\n" + cheerio.load(html)("meta[name='description']").attr("content");
-                    const websiteConfig = YAML.parse(fs.readFileSync(path.resolve(__dirname, "./_config.yml"), "utf8"));
                     const pathLabel = url.parse(item).path.replace(websiteConfig.root || "", "");
                     const label = crypto.createHash('md5').update(pathLabel).digest('hex');
                     return send({ ...requestPostOpt, body: { body: desc, labels: [config.kind, label], title } });
