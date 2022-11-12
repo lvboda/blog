@@ -29,6 +29,7 @@ module.exports = class extends Component {
         };`;
 
         return <Fragment>
+            <script src={url_for( '/js/night.js' )} defer></script>
             <script src={cdn('jquery', '3.3.1', 'dist/jquery.min.js')}></script>
             <script src={cdn('moment', '2.22.2', 'min/moment-with-locales.min.js')}></script>
             {clipboard && <script src={cdn('clipboard', '2.0.4', 'dist/clipboard.min.js')} defer></script>}
@@ -37,7 +38,6 @@ module.exports = class extends Component {
             <script src={url_for('/js/column.js')}></script>
             <Plugins site={site} config={config} page={page} helper={helper} head={false} />
             <script src={url_for('/js/main.js')} defer></script>
-	    <script src={url_for( '/js/night.js' )} defer={ true }></script>
         </Fragment>;
     }
 };
