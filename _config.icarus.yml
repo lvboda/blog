@@ -414,7 +414,7 @@ providers:
     # Name or URL template of the JavaScript and/or stylesheet CDN provider
     cdn: cdnjs
     # Name or URL template of the webfont CDN provider
-    fontcdn: ustc
+    fontcdn: google
     # Name or URL of the fontawesome icon font CDN provider
     iconcdn: fontawesome
 
