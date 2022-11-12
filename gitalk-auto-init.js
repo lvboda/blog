@@ -1,3 +1,7 @@
+/**
+ * gitalk自动初始化issues脚本
+ * 
+*/
 const fs = require("fs");
 const path = require("path");
 const url = require("url");
@@ -6,30 +10,41 @@ const xmlParser = require("xml-parser");
 const YAML = require("yamljs");
 const cheerio = require("cheerio");
 const crypto = require('crypto');
-// 根据自己的情况进行配置
-const config = {
-    username: "lvboda", // GitHub 用户名
-    token: "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",  // GitHub Token
-    repo: "blog",  // 存放 issues的git仓库
-    // sitemap.xml的路径，gitalk.init.js放置在根目录下，无需修改，其他情况自行处理
-    sitemapUrl: path.resolve(__dirname, "./public/sitemap.xml"),
-    kind: "Gitalk",  // "Gitalk" or "Gitment"
-};
-let issuesUrl = `https://api.github.com/repos/${config.username}/${config.repo}/issues`;
 
-let requestGetOpt = {
+// 根据自己的情况进行配置
+// const config = {
+//     username: "", // GitHub 用户名
+//     token: "",  // GitHub Token
+//     repo: "",  // 存放 issues的git仓库
+//     // sitemap.xml的路径，gitalk.init.js放置在根目录下，无需修改，其他情况自行处理
+//     sitemapUrl: path.resolve(__dirname, "./public/sitemap.xml"),
+//     kind: "Gitalk",  // "Gitalk" or "Gitment"
+// };
+
+const config = { // ##gitignore
+    username: "lvboda", // ##gitignore
+    token: "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",  // ##gitignore
+    repo: "blog", // ##gitignore
+    sitemapUrl: path.resolve(__dirname, "./public/sitemap.xml"), // ##gitignore
+    kind: "Gitalk",  // ##gitignore
+}; // ##gitignore
+
+const issuesUrl = `https://api.github.com/repos/${config.username}/${config.repo}/issues`;
+
+const requestGetOpt = {
     url: `${issuesUrl}?page=1&per_page=1000`,
     json: true,
     headers: {
         "User-Agent": "github-user",
-        "Authorization": `token ${config.token}`
+        "Authorization": `token ${config.token}`,
     }
 };
-let requestPostOpt = {
+
+const requestPostOpt = {
     ...requestGetOpt,
     url:issuesUrl,
     method: "POST",
-    form: ""
+    body: {},
 };
 
 console.log("开始初始化评论...");
@@ -38,27 +53,23 @@ console.log("开始初始化评论...");
     console.log("开始检索链接，请稍等...");
     
     try {
-        let websiteConfig = YAML.parse(fs.readFileSync(path.resolve(__dirname, "./_config.yml"), "utf8"));
-        
-        let urls = sitemapXmlReader(config.sitemapUrl);
-        console.log(`共检索到${urls.length-1}个链接`);
-        
+        const urls = sitemapXmlReader(config.sitemapUrl);
+        console.log(`共检索到${urls.length - 1}个链接`);
+
         console.log("开始获取已经初始化的issues:");
-        let issues = await send(requestGetOpt);
+        const issues = await send(requestGetOpt);
         console.log(`已经存在${issues.length}个issues`);
         
-        let notInitIssueLinks = urls.filter((link) => {
+        const notInitIssueLinks = urls.filter((link) => {
             return !issues.find((item) => {
                 link = removeProtocol(link);
                 return item.body.includes(link);
             });
         });
         
-        for(let i=0;i<notInitIssueLinks.length;i++)
-        {
-            if(notInitIssueLinks[i].endsWith("tags/index.html"))
-            {
-                notInitIssueLinks.splice(i,1);
+        for (let i = 0;i < notInitIssueLinks.length;i++) {
+            if (notInitIssueLinks[i].endsWith("tags/index.html")) {
+                notInitIssueLinks.splice(i, 1);
                 i--;
             }
         }
@@ -72,25 +83,23 @@ console.log("开始初始化评论...");
              * 经测试，最少需要等待40秒，才可以正确生成， 怀疑跟github的api有关系，没有找到实锤
              */
             setTimeout(async ()=>{
-                let initRet = await notInitIssueLinks.map(async (item) => {
-                    let html = await send({ ...requestGetOpt, url: item });
-                    let title = cheerio.load(html)("title").text();
-                    let desc = item + "\n\n" + cheerio.load(html)("meta[name='description']").attr("content");
-                    let pathLabel = url.parse(item).path;
-                    let label = crypto.createHash('md5').update(pathLabel,'utf-8').digest('hex');
-                    let form = JSON.stringify({ "body": desc, "labels": [config.kind, label], "title": title });
-                    return send({ ...requestPostOpt, form });
+                const initRet = await notInitIssueLinks.map(async (item) => {
+                    const html = await send({ ...requestGetOpt, url: item });
+                    const title = cheerio.load(html)("title").text();
+                    const desc = item + "\n\n" + cheerio.load(html)("meta[name='description']").attr("content");
+                    const websiteConfig = YAML.parse(fs.readFileSync(path.resolve(__dirname, "./_config.yml"), "utf8"));
+                    const pathLabel = url.parse(item).path.replace(websiteConfig.root || "", "");
+                    const label = crypto.createHash('md5').update(pathLabel).digest('hex');
+                    return send({ ...requestPostOpt, body: { body: desc, labels: [config.kind, label], title } });
                 });
                 console.log(`初始化issues成功，完成${initRet.length}个！`);
-            },40000);
+            }, 40000);
         } else {
             console.log("本次发布无新增页面，无需初始化issue!!");
         }
     } catch (e) {
         console.log(`初始化issue出错，错误如下：`);
         console.log(e);
-    } finally {
-    
     }
 })();
 
