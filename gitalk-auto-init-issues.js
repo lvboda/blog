@@ -105,10 +105,11 @@ function urlFilter(urlList, issueList) {
     }
 
     return urlList.filter((url) => {
-        const path = new URL(decodeURIComponent(url)).pathname.replace(websiteConfig.root || "", "");
+        const path = decodeURIComponent(new URL(url).pathname).replace(websiteConfig.root || "", "");
 
         const isPathFormat = checkoutPathFormat(path);
-        const hasIssues = issueList.find((issue) => issue.body.includes(path));
+        const hasIssues = issueList.findIndex((issue) => issue.body.includes(path)) !== -1;
+
         return isPathFormat && !hasIssues;
     });
 }
