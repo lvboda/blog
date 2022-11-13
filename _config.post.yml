@@ -1,14 +1,18 @@
 # _config.post.yml中的配置对所有“文章”生效
 widgets:
     # 个人信息组件
-    # -
-    #     type: profile
-    #     position: right
-        
-    # 最新文章组件
-    # -
-    #     type: recent_posts
-    #     position: left
+    -
+        type: profile
+        position: right
+        author: Boda
+        # Author title
+        # author_title: 
+        location: China
+        avatar: /img/avatar.png
+        avatar_rounded: true
+        # Email address for the Gravatar
+        # gravatar:
+        follow_link: 'https://github.com/lvboda'
 
     # 分类组件
     # -
@@ -30,10 +34,18 @@ widgets:
     #     type: links
     #     position: right
 
+    # 最新文章组件
+    -
+        type: recent_posts
+        position: right
+
     # 目录组件
     -
         type: toc
         position: right
+        index: true
+        collapsed: false
+        depth: 4
 
     # 订阅更新组件
     # -
@@ -62,4 +74,4 @@ sidebar:
     right:
         # Whether the sidebar sticks to the top when page scrolls
         # 是否不随页面滚动
-        sticky: true
+        sticky: false

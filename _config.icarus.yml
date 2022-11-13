@@ -111,10 +111,10 @@ navbar:
         友链: /friends
         关于: /about
     # Links to be shown on the right of the navigation bar
-#    links:
- #       Download on GitHub:
-  #          icon: fab fa-github
-   #         url: 'https://github.com/ppoffice/hexo-theme-icarus'
+    # links:
+    #    Download on GitHub:
+    #        icon: fab fa-github
+    #        url: 'https://github.com/ppoffice/hexo-theme-icarus'
 # Page footer configurations
 footer:
     # Links to be shown on the right of the footer section
@@ -268,16 +268,16 @@ widgets:
  #               icon: fas fa-rss
   #              url: /
     # Table of contents widget configurations
-    -
-        # Where should the widget be placed, left sidebar or right sidebar
-        position: right
-        type: toc
-        # Whether to show the index of each heading
-        index: true
-        # Whether to collapse sub-headings when they are out-of-view
-        collapsed: true
-        # Maximum level of headings to show (1-6)
-        depth: 4
+    # -
+    #     # Where should the widget be placed, left sidebar or right sidebar
+    #     position: right
+    #     type: toc
+    #     # Whether to show the index of each heading
+    #     index: true
+    #     # Whether to collapse sub-headings when they are out-of-view
+    #     collapsed: false
+    #     # Maximum level of headings to show (1-6)
+    #     depth: 4
     # Recommendation links widget configurations
     # -
     #     # Where should the widget be placed, left sidebar or right sidebar
@@ -287,54 +287,54 @@ widgets:
     #     links:
     #         联系: 'https://t.me/welcomehomezero'
     # Categories widget configurations
+    # -
+    #     # Where should the widget be placed, left sidebar or right sidebar
+    #     position: right
+    #     type: categories
+    # Recent posts widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
-        position: right
-        type: categories
-    # Recent posts widget configurations
-#    -
-        # Where should the widget be placed, left sidebar or right sidebar
- #       position: right
-  #      type: recent_posts
+       position: right
+       type: recent_posts
     # Tags widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
        position: right
        type: tags
     # Archives widget configurations
-    -
-        # Where should the widget be placed, left sidebar or right sidebar
-       position: right
-       type: archives
+    # -
+    #     # Where should the widget be placed, left sidebar or right sidebar
+    #    position: right
+    #    type: archives
     # Google FeedBurner email subscription widget configurations
-#    -
-        # Where should the widget be placed, left sidebar or right sidebar
- #       position: left
-  #      type: subscribe_email
-        # Hint text under the email input
-   #     description: 
-        # Feedburner ID
+    # -
+    #     # Where should the widget be placed, left sidebar or right sidebar
+    #    position: left
+    #    type: subscribe_email
+    #     # Hint text under the email input
+    #    description: 
+    #     # Feedburner ID
     #    feedburner_id: ''
     # Google AdSense unit configurations
-#    -
-        # Where should the widget be placed, left sidebar or right sidebar
- #       position: left
-  #      type: adsense
-        # AdSense client ID
-   #     client_id: ''
-        # AdSense AD unit ID
+    # -
+    #     # Where should the widget be placed, left sidebar or right sidebar
+    #    position: left
+    #    type: adsense
+    #     # AdSense client ID
+    #    client_id: ''
+    #     # AdSense AD unit ID
     #    slot_id: ''
     # Follow.it email subscription widget configurations
-#    -
-        # Where should the widget be placed, left sidebar or right sidebar
- #       position: left
-  #      type: followit
-        # Hint text under the email input
-   #     description: 
-        # Subscription form action URL
+    # -
+    #     # Where should the widget be placed, left sidebar or right sidebar
+    #    position: left
+    #    type: followit
+    #     # Hint text under the email input
+    #    description: 
+    #     # Subscription form action URL
     #    action_url: ''
-        # Feed claiming verification code
-     #   verification_code: ''
+    #     # Feed claiming verification code
+    #    verification_code: ''
 # Plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/
 plugins:

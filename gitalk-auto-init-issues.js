@@ -17,11 +17,14 @@ const crypto = require('crypto');
 //     token: "",  // GitHub Token
 //     repo: "",  // 存放 issues的git仓库
 //     // sitemap.xml的路径，gitalk.init.js放置在根目录下，无需修改，其他情况自行处理
-//     sitemapUrl: path.resolve(__dirname, "./public/sitemap.xml"),
 //     kind: "Gitalk",  // "Gitalk" or "Gitment"
+//     sitemapUrl: path.resolve(__dirname, "./public/sitemap.xml"),
+//     websiteConfig: YAML.parse(fs.readFileSync(path.resolve(__dirname, "./_config.yml"), "utf8")),
 // };
 
 
+const urlList = sitemapXmlReader(path.resolve(__dirname, "./public/sitemap.xml"));
+const websiteConfig = YAML.parse(fs.readFileSync(path.resolve(__dirname, "./_config.yml"), "utf8"));
 const issuesUrl = `https://api.github.com/repos/${config.username}/${config.repo}/issues`;
 
 const requestGetOpt = {
@@ -35,7 +38,7 @@ const requestGetOpt = {
 
 const requestPostOpt = {
     ...requestGetOpt,
-    url:issuesUrl,
+    url: issuesUrl,
     method: "POST",
     body: {},
 };
@@ -46,58 +49,30 @@ console.log("开始初始化评论...");
     console.log("开始检索链接，请稍等...");
     
     try {
-        const websiteConfig = YAML.parse(fs.readFileSync(path.resolve(__dirname, "./_config.yml"), "utf8"));
-
-        const urls = sitemapXmlReader(config.sitemapUrl);
-        console.log(`共检索到${urls.length - 1}个链接`);
-
         console.log("开始获取已经初始化的issues:");
-        const issues = await send(requestGetOpt);
-        console.log(`已经存在${issues.length}个issues`);
-        
-        const notInitIssueLinks = urls.filter((link) => {
-            // 排除
-            if (
-                link.endsWith("about/") ||
-                link.endsWith("friends/") ||
-                (
-                    websiteConfig.root &&
-                    websiteConfig.root !== "/" &&
-                    link.endsWith(websiteConfig.root.replaceAll("/", ""))
-                )
-            ) return false;
+        const issueList = await send(requestGetOpt);
+        console.log(`已经存在${issueList.length}个issues`);
 
-            return !issues.find((item) => {
-                link = removeProtocol(link);
-                return item.body.includes(link);
-            });
-        });
-        
-        for (let i = 0;i < notInitIssueLinks.length;i++) {
-            if (notInitIssueLinks[i].endsWith("tags/index.html")) {
-                notInitIssueLinks.splice(i, 1);
-                i--;
-            }
-        }
+        const notInitIssueUrlList = urlFilter(urlList, issueList);
 
-        if (notInitIssueLinks.length > 0) {
-            console.log(`本次有${notInitIssueLinks.length}个链接需要初始化issue：`);
-            console.log(notInitIssueLinks);
+        if (notInitIssueUrlList.length > 0) {
+            console.log(`本次有${notInitIssueUrlList.length}个链接需要初始化issue：`);
+            console.log(notInitIssueUrlList.map((item) => decodeURIComponent(item)));
             console.log("开始提交初始化请求, 大约需要40秒...");
             /**
              * 部署好网站后，直接执行start，新增文章并不会生成评论
              * 经测试，最少需要等待40秒，才可以正确生成， 怀疑跟github的api有关系，没有找到实锤
              */
             setTimeout(async ()=>{
-                const initRet = await notInitIssueLinks.map(async (item) => {
-                    const html = await send({ ...requestGetOpt, url: item });
+                for (const notInitIssueUrl of notInitIssueUrlList) {
+                    const html = await send({ ...requestGetOpt, url: notInitIssueUrl });
                     const title = cheerio.load(html)("title").text();
-                    const desc = item + "\n\n" + cheerio.load(html)("meta[name='description']").attr("content");
-                    const pathLabel = url.parse(item).path.replace(websiteConfig.root || "", "");
-                    const label = crypto.createHash('md5').update(pathLabel).digest('hex');
-                    return send({ ...requestPostOpt, body: { body: desc, labels: [config.kind, label], title } });
-                });
-                console.log(`初始化issues成功，完成${initRet.length}个！`);
+                    const desc = decodeURIComponent(notInitIssueUrl) + "\n\n" + cheerio.load(html)("meta[name='description']").attr("content");
+                    const pathLabel = url.parse(notInitIssueUrl).path.replace(websiteConfig.root || "", "");
+                    const label = crypto.createHash('md5').update(decodeURIComponent(pathLabel)).digest('hex');
+                    await send({ ...requestPostOpt, body: { body: desc, labels: [config.kind, label], title } });
+                }
+                console.log(`初始化issues成功，完成${notInitIssueUrlList.length}个！`);
             }, 40000);
         } else {
             console.log("本次发布无新增页面，无需初始化issue!!");
@@ -119,8 +94,23 @@ function sitemapXmlReader(file) {
     });
 }
 
-function removeProtocol(url) {
-    return url.substr(url.indexOf(":"));
+function urlFilter(urlList, issueList) {
+    if (!urlList || !Array.isArray(urlList) || !issueList || !Array.isArray(issueList)) throw Error("");
+
+    function checkoutPathFormat(path) {
+        const pathArr = path?.split("/");
+        if (!pathArr || pathArr.length < 4) return;
+        const date = `${pathArr[0]}-${pathArr[1]}-${pathArr[2]}`;
+        return new Date(date).getDate() == date.substring(date.length - 2);
+    }
+
+    return urlList.filter((url) => {
+        const path = new URL(decodeURIComponent(url)).pathname.replace(websiteConfig.root || "", "");
+
+        const isPathFormat = checkoutPathFormat(path);
+        const hasIssues = issueList.find((issue) => issue.body.includes(path));
+        return isPathFormat && !hasIssues;
+    });
 }
 
 function send(options) {

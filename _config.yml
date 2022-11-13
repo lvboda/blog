@@ -64,3 +64,4 @@ theme: icarus
 deploy:
   type: ''
 toc: true
+excerpt_length: 110 # 首页显示摘录长度
