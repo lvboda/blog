@@ -98,11 +98,14 @@ function urlFilter(urlList, issueList) {
     if (!urlList || !Array.isArray(urlList) || !issueList || !Array.isArray(issueList)) throw Error("");
 
     function checkoutPathFormat(path) {
-        // const pathArr = path?.split("/");
-        // if (!pathArr || pathArr.length < 4) return;
-        // const date = `${pathArr[0]}-${pathArr[1]}-${pathArr[2]}`;
-        // return new Date(date).getDate() == date.substring(date.length - 2);
-        return path && path.endsWith(".html") && !path.endsWith("index.html");
+        if (!path || !path.endsWith(".html") || path.endsWith("index.html")) return;
+        const startIndex = path.lastIndexOf("/") !== -1 ? path.lastIndexOf("/") + 1 : 0;
+        const endIndex = path.lastIndexOf(".html");
+        const hn = path.substring(startIndex, endIndex);
+        if (hn.length !== 14) return;
+        
+        const date = `${hn.slice(0, 4)}-${hn.slice(4, 6)}-${hn.slice(6, 8)} ${hn.slice(8, 10)}:${hn.slice(10, 12)}:${hn.slice(12, 14)}`;
+        return new Date(date).getFullYear() === Number(date.slice(0, 4));
     }
 
     return urlList.filter((url) => {
