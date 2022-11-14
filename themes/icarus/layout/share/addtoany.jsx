@@ -6,7 +6,7 @@ module.exports = class extends Component {
       <Fragment>
         <div
           class="a2a_kit a2a_kit_size_32 a2a_default_style"
-          data-a2a-url="https:lvboda.cn/blog/"
+          data-a2a-url="https://blog.lvboda.cn"
           data-a2a-title="Boda's blog"
         >
           <a class="a2a_dd" href="https://www.addtoany.com/share"></a>

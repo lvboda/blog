@@ -172,7 +172,7 @@ comment:
     pager_direction: last
     distraction_free_mode: false
     create_issue_manually: true
-    proxy: https://lvboda.cn/proxy/?addr=https://github.com/login/oauth/access_token
+    proxy: https://blog.lvboda.cn/proxy/?addr=https://github.com/login/oauth/access_token
   #  flip_move_options:              # 可选填
  #   enable_hotkey: true             # 可选填
 
