@@ -98,10 +98,11 @@ function urlFilter(urlList, issueList) {
     if (!urlList || !Array.isArray(urlList) || !issueList || !Array.isArray(issueList)) throw Error("");
 
     function checkoutPathFormat(path) {
-        const pathArr = path?.split("/");
-        if (!pathArr || pathArr.length < 4) return;
-        const date = `${pathArr[0]}-${pathArr[1]}-${pathArr[2]}`;
-        return new Date(date).getDate() == date.substring(date.length - 2);
+        // const pathArr = path?.split("/");
+        // if (!pathArr || pathArr.length < 4) return;
+        // const date = `${pathArr[0]}-${pathArr[1]}-${pathArr[2]}`;
+        // return new Date(date).getDate() == date.substring(date.length - 2);
+        return path && path.endsWith(".html") && !path.endsWith("index.html");
     }
 
     return urlList.filter((url) => {
