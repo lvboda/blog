@@ -49,8 +49,8 @@ donate:
     buymeacoffee: '送我杯咖啡'
 plugin:
     backtotop: '回到顶端'
-    visit_count: '%s次访问'
-    visitor_count: '共%s个访客'
+    visit_count: '%s次阅读'
+    visitor_count: '本站共%s个访客'
     cookie_consent:
       message: 此网站使用Cookie来改善您的体验。
       dismiss: 知道了！

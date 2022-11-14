@@ -35,7 +35,12 @@ class Footer extends Component {
                         </a>
                         <p class="is-size-7">
                             <span dangerouslySetInnerHTML={{ __html: `&copy; ${siteYear} ${author || siteTitle}` }}></span>
-							<br />
+
+                            {showVisitorCounter ? <br /> : null}
+                            {showVisitorCounter ? <span id="busuanzi_container_site_uv"
+                                dangerouslySetInnerHTML={{ __html: visitorCounterTitle }}></span> : null}
+                            
+                            <br/>
 							<span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
 							<script dangerouslySetInnerHTML={{
 								__html: `
@@ -56,10 +61,8 @@ class Footer extends Component {
 								`,
 							}}
 							/>
-                            {showVisitorCounter ? <br /> : null}
-                            {showVisitorCounter ? <span id="busuanzi_container_site_uv"
-                                dangerouslySetInnerHTML={{ __html: visitorCounterTitle }}></span> : null}
-                            <br/>
+                            
+                            <br />
                                 <a href="mailto:lvboda.cn@gmail.com">lvboda.cn@gmail.com</a>
                             <br/>
                                 <a href="http://beian.miit.gov.cn/" target="_blank" rel="noopener">辽ICP备2022007649号-2</a>
