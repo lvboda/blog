@@ -38,8 +38,5 @@
     "request": "^2.88.2",
     "xml-parser": "^1.2.1",
     "yamljs": "^0.3.0"
-  },
-  "devDependencies": {
-    "gulp-imagemin": "^8.0.0"
   }
 }
