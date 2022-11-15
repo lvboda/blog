@@ -1,6 +1,5 @@
 #!/bin/bash
 
-cd ..
 hexo clean
 hexo generate
 echo "--静态文件已生成--"
