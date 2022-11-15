@@ -68,7 +68,8 @@ console.log("开始初始化评论...");
                     const html = await send({ ...requestGetOpt, url: notInitIssueUrl });
                     const title = cheerio.load(html)("title").text();
                     const desc = decodeURIComponent(notInitIssueUrl) + "\n\n" + cheerio.load(html)("meta[name='description']").attr("content");
-                    const pathLabel = url.parse(notInitIssueUrl).path.replace(websiteConfig.root || "", "");
+                    let pathLabel = url.parse(notInitIssueUrl).path.replace(websiteConfig.root || "", "");
+                    pathLabel.substring(0, 1) === "/" && (pathLabel = pathLabel.replace("/", ""));
                     const label = crypto.createHash('md5').update(decodeURIComponent(pathLabel)).digest('hex');
                     await send({ ...requestPostOpt, body: { body: desc, labels: [config.kind, label], title } });
                 }
@@ -103,7 +104,7 @@ function urlFilter(urlList, issueList) {
         const endIndex = path.lastIndexOf(".html");
         const hn = path.substring(startIndex, endIndex);
         if (hn.length !== 14) return;
-        
+
         const date = `${hn.slice(0, 4)}-${hn.slice(4, 6)}-${hn.slice(6, 8)} ${hn.slice(8, 10)}:${hn.slice(10, 12)}:${hn.slice(12, 14)}`;
         return new Date(date).getFullYear() === Number(date.slice(0, 4));
     }
