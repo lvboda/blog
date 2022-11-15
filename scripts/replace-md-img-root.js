@@ -11,7 +11,7 @@ const replaceBefore = "https://fastly.jsdelivr.net/gh/lvboda/figure-bed@main/ima
 const replaceAfter = "11";
 
 // _posts文件夹路径
-const postsPath = path.resolve(__dirname, "./source/_posts");
+const postsPath = path.resolve(__dirname, "../source/_posts");
 
 console.log("开始替换markdown里的图片url");
 (function() {
