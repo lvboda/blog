@@ -1,0 +1,2 @@
+_config.icarus.yml filter=line_ignore
+gitalk-auto-init-issues.js filter=line_ignore
