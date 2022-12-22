@@ -12,7 +12,7 @@
     "version": "5.4.2"
   },
   "dependencies": {
-    "bulma-stylus": "^0.8.0",
+    "bulma-stylus": "^0.9.1",
     "crypto": "^1.0.1",
     "gulp": "^4.0.2",
     "gulp-htmlclean": "^2.7.22",
