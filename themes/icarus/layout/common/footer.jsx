@@ -50,7 +50,7 @@ class Footer extends Component {
 								__html: `
 								var now = new Date();
 								function createtime() {
-									var grt= new Date("11/10/2022 00:00:00");//此处修改你的建站时间或者网站上线时间
+									var grt= new Date("01/08/2022 00:00:00"); // 此处修改你的建站时间或者网站上线时间
 									now.setTime(now.getTime()+250);
 									days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
 									hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
