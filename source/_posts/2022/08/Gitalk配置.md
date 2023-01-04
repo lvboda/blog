@@ -1,10 +1,11 @@
 ---
 title: Gitalk配置
-date: 2022-08-14 14:17:50
 categories: 博客搭建
 tags:
   - Gitalk
   - blog
+abbrlink: 2eae
+date: 2022-08-14 14:17:50
 ---
 
 # 前言
