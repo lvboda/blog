@@ -1,11 +1,11 @@
 ---
 title: 使用Hexo搭建个人博客
-abbrlink: a927
-date: 2022-08-12 10:09:07
 categories: 博客搭建
 tags:
   - Hexo
   - blog
+abbrlink: 'a927'
+date: 2022-08-12 10:09:07
 ---
 
 # 前言
