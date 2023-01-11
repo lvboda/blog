@@ -4,7 +4,7 @@ categories: 博客搭建
 tags:
   - Hexo
   - blog
-abbrlink: 'a927'
+abbrlink: a927
 date: 2022-08-12 10:09:07
 ---
 
