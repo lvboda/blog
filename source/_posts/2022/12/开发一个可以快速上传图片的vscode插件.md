@@ -1,5 +1,5 @@
 ---
-title: 快速上传图片的vscode插件
+title: 开发一个可以快速上传图片的vscode插件
 categories: 项目开发记录
 tags:
   - vscode
