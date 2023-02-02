@@ -859,6 +859,6 @@ vsce publish
 # 最后
 项目的 github 地址：https://github.com/lvboda/vscode-img-fast
 
-## 参考文献
+## 参考资料
 - https://code.visualstudio.com/api
 - https://www.cnblogs.com/liuxianan/p/vscode-plugin-overview.html
