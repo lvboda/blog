@@ -38,7 +38,7 @@ npm install -g generator-code
 yo code
 ```
 
-![](https://lvboda.cn/uploader/static/b00f1385338224027bc462d90eddc50b.png)
+![](https://gh.llkk.cc/https://raw.githubusercontent.com/lvboda/figure-bed/main/files/b00f1385338224027bc462d90eddc50b.png)
 
 根据提示进行选择，完成后会自动创建文件夹并帮助初始化完成文件，我们先来看下目录结构。
 

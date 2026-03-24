@@ -24,7 +24,7 @@ diff 算法可以看作是一种对比算法，对比的对象是新旧虚拟 Do
 3. 比较都有子节点的情况
 4. 递归比较子节点
 
-![](https://lvboda.cn/uploader/static/3b2ce935edbce098dd0252d9bea37153.png)
+![](https://gh.llkk.cc/https://raw.githubusercontent.com/lvboda/figure-bed/main/files/3b2ce935edbce098dd0252d9bea37153.png)
 
 # 源码总结
 在进行节点比较时，是通过 patch 这个方法实现，其中如果不是真实元素并且用 sameVnode 看两个是否是同一个元素，如果是然后会调用 patchVnode 进行比较，比较的是虚拟节点不是真实节点，如果不值得去比较则用 Vnode 替换 oldVnode。

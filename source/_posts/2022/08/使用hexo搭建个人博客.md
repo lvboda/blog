@@ -17,14 +17,14 @@ date: 2022-08-12 10:09:07
 ## 安装Node.js
 `Node.js` 安装包及源码下载地址为：[https://nodejs.org/zh-cn/download/](https://nodejs.org/zh-cn/download/)
 
-![](https://lvboda.cn/uploader/static/0728ce267d7f35549c41595009cbbe37.png)
+![](https://gh.llkk.cc/https://raw.githubusercontent.com/lvboda/figure-bed/main/files/0728ce267d7f35549c41595009cbbe37.png)
 
 根据不同的系统选择对应的 `Node.js` 的安装包进行下载，然后直接傻瓜式安装即可
 
 ## 安装Git
 `Git` 安装包下载地址为：[https://git-scm.com/download](https://git-scm.com/download)
 
-![](https://lvboda.cn/uploader/static/9d0cec3968efdf0da233d9de8271aafb.png)
+![](https://gh.llkk.cc/https://raw.githubusercontent.com/lvboda/figure-bed/main/files/9d0cec3968efdf0da233d9de8271aafb.png)
 
 根据不同的系统选择对应的安装方式进行安装即可
 
@@ -45,7 +45,7 @@ hexo -v
 
 显示对应版本号即为安装成功，如下图
 
-![](https://lvboda.cn/uploader/static/fbe27395464283918dbc8230068f7257.png)
+![](https://gh.llkk.cc/https://raw.githubusercontent.com/lvboda/figure-bed/main/files/fbe27395464283918dbc8230068f7257.png)
 
 ## 建站并本地运行
 安装 `Hexo` 完成后，请执行下列命令，`Hexo` 将会在指定文件夹中新建所需要的文件
@@ -76,7 +76,7 @@ hexo server
 
 等待命令执行完浏览器访问[http://localhost:4000/](http://localhost:4000/)，显示内容即为运行成功，如下图：
 
-![](https://lvboda.cn/uploader/static/c0444ae4bb75e9d80ed2b3a9ebf994f7.png)
+![](https://gh.llkk.cc/https://raw.githubusercontent.com/lvboda/figure-bed/main/files/c0444ae4bb75e9d80ed2b3a9ebf994f7.png)
 
 到这里我们就用hexo成功的搭建了最基础的博客，并在本地成功运行了
 
@@ -85,15 +85,15 @@ hexo server
 
 1. 在官网的[主题页](https://hexo.io/themes/)选一个你喜欢的主题，这里我用的是 `Icarus` 
 
-![](https://lvboda.cn/uploader/static/368d10271b853378d3fefec2194ffc86.png)
+![](https://gh.llkk.cc/https://raw.githubusercontent.com/lvboda/figure-bed/main/files/368d10271b853378d3fefec2194ffc86.png)
 
 2. 点击这个主题的名字跳转到对应的 `github` 仓库，并复制 `github` 地址
 
-![](https://lvboda.cn/uploader/static/9bb4999bc057af464ae662d35bf073a5.png)
+![](https://gh.llkk.cc/https://raw.githubusercontent.com/lvboda/figure-bed/main/files/9bb4999bc057af464ae662d35bf073a5.png)
 
 1. 打开博客目录下的 `themes` 目录，在当前目录下打开命令窗口，执行 `git clone <复制的github地址>` 命令并等待执行完成
 
-![](https://lvboda.cn/uploader/static/ec138e20f365b663218b87d85377112d.png)
+![](https://gh.llkk.cc/https://raw.githubusercontent.com/lvboda/figure-bed/main/files/ec138e20f365b663218b87d85377112d.png)
 
 4. 打开博客根目录的 `_config.yml` 文件，找到 `theme` 配置并修改为你要切换的主题名称
 

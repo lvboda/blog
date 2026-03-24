@@ -123,7 +123,7 @@ wantCake.notify()
 
 官网用了一张图来表示这个过程，但是刚开始看可能看不懂，等到文章的最后，我们再来看，应该就能看懂了。
 
-![](https://lvboda.cn/uploader/static/d40dfd26de1e241d1c20f195e0b4df48.png)
+![](https://gh.llkk.cc/https://raw.githubusercontent.com/lvboda/figure-bed/main/files/d40dfd26de1e241d1c20f195e0b4df48.png)
 
 ## init 阶段
 VUE 的 data 的属性都会被 Reactive 化，也就是加上 setter/getter 函数。
@@ -252,7 +252,7 @@ notify () {
 ```
 可以用一张图来表示：
 
-![](https://lvboda.cn/uploader/static/7bbf811d13755ce9d3e1a72aecaf45f7.png)
+![](https://gh.llkk.cc/https://raw.githubusercontent.com/lvboda/figure-bed/main/files/7bbf811d13755ce9d3e1a72aecaf45f7.png)
 
 由此图我们可以看出 Watcher 是连接 VUE component 跟 data 属性的桥梁。
 
