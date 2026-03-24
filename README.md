@@ -1,7 +1,7 @@
 # blog
 My blog.
 
-[preview](https://blog.lvboda.cn)
+[preview](https://lvboda-blog.pages.dev)
 
 ## License
 

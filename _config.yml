@@ -5,7 +5,7 @@ keywords: 个人博客
 author: Boda Lü
 language: zh-CN
 timezone: Asia/Shanghai
-url: 'https://blog.lvboda.cn'
+url: 'https://lvboda-blog.pages.dev'
 # permalink: ':year:month:day:hour:minute:second.html'
 permalink: '/:abbrlink.html'
 abbrlink:
