@@ -4,9 +4,8 @@
   "private": true,
   "packageManager": "pnpm@7.33.6",
   "scripts": {
-    "build": "hexo generate",
+    "build": "hexo clean && hexo generate && gulp",
     "clean": "hexo clean",
-    "deploy": "script/deploy.sh",
     "server": "hexo server"
   },
   "hexo": {
