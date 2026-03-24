@@ -4,7 +4,7 @@
   "private": true,
   "packageManager": "pnpm@7.33.6",
   "scripts": {
-    "build": "hexo clean && hexo generate && gulp",
+    "build": "sed -i 's/GITALK_CLIENT_ID/'\"$GITALK_CLIENT_ID\"'/;s/GITALK_CLIENT_SECRET/'\"$GITALK_CLIENT_SECRET\"'/' _config.icarus.yml && hexo clean && hexo generate && gulp",
     "clean": "hexo clean",
     "server": "hexo server"
   },
