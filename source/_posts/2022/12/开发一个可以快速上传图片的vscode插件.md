@@ -72,7 +72,6 @@ yo code
   "publisher": "lvboda", // 发布者，如果要发布到应用市场的话，这个名字必须与发布者一致
   "author": { // 作者信息
     "name": "Boda Lü",
-    "url": "https://lvboda.cn",
     "email": "lv_boda@163.com"
   },
   "license": "SEE LICENSE IN LICENSE", // 许可
