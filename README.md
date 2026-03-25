@@ -1,7 +1,5 @@
 # blog
-My blog.
-
-[preview](https://lvboda-blog.pages.dev)
+[My blog](https://lvboda-blog.pages.dev)
 
 ## License
 
