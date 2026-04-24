@@ -100,3 +100,40 @@ date: 2022-08-02 00:00:00
 </article>
 
 --- -->
+
+<div class="columns is-multiline">
+  <div class="column is-half">
+    <div class="card">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-left">
+            <figure class="image is-48x48">
+              <a
+                class="gallery-item"
+                target="_blank"
+                rel="noopener"
+                href="https://isenchun.cn/"
+                ><img
+                  src="https://isenchun.cn/logo.png"
+                  width="128"
+                  height="128"
+              /></a>
+            </figure>
+          </div>
+          <div class="media-content">
+            <p>
+              <a
+                class="title is-4"
+                target="_blank"
+                rel="noopener"
+                href="https://isenchun.cn/"
+                >森纯博客</a
+              >
+            </p>
+            <p class="subtitle is-6">记录生活和分享知识</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
